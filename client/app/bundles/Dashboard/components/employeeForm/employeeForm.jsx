@@ -6,6 +6,9 @@ export default class EmployeeForm extends React.Component {
   static propTypes = {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+    position: PropTypes.string
   };
 
   constructor(props, context) {
@@ -22,14 +25,22 @@ export default class EmployeeForm extends React.Component {
   }
 
   render() {
+    const { first_name, last_name, position} = this.props
     return (
       <form className="form-employee">
         <label>
           First Name:
         </label>
         <input type="text" value={first_name} onChange={this.handleChange}/>
+        <label>
+          Last Name:
+        </label>
         <input type="text" value={last_name} onChange={this.handleChange}/>
+        <label>
+          Position:
+        </label>
         <input type="text" value={position} onChange={this.handleChange}/>
+        <input type="submit"/>
       </form>
     );
   }
