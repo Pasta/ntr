@@ -1,7 +1,7 @@
 import request from 'axios';
 import metaTagsManager from './metaTagsManager';
 
-const API_URL = 'employees.json';
+const API_URL = '/employees.json';
 
 export default {
 

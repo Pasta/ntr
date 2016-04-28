@@ -8,6 +8,7 @@ export default class EmployeesListItem extends React.Component {
     // passing two properties: "data" and "actions".
     first_name: PropTypes.string.isRequired,
     last_name: PropTypes.string.isRequired,
+    actions: PropTypes.object.isRequired
   };
 
   constructor(props, context) {

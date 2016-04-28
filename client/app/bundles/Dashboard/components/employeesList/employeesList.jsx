@@ -7,6 +7,8 @@ import { Link } from 'react-router';
 export default class EmployeesList extends React.Component {
   static propTypes = {
     employees: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
   };
 
   // constructor(props, context) {
@@ -20,13 +22,13 @@ export default class EmployeesList extends React.Component {
 
 
   render() {
-    const { employees } = this.props;
+    const { employees, actions } = this.props;
     return (
       <div>
         <h1>Employees List</h1>
         <ul>
           {employees.map(function(employee) {
-              return <EmployeesListItem key={employee.toObject()["id"]} first_name={employee.toObject()["first_name"]} last_name={employee.toObject()["last_name"]} />;
+              return <EmployeesListItem actions={ actions } key={employee.toObject()["id"]} first_name={employee.toObject()["first_name"]} last_name={employee.toObject()["last_name"]} />;
           })}
         </ul>
         <Link to="employees/new">

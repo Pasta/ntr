@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
 import EmployeeForm from '../components/employeeForm/employeeForm';
+import * as employeesActionCreators from '../actions/employeesActionCreators';
 
 function select(state) {
   // Which part of the Redux global state does our component want to receive as props?
@@ -11,8 +12,10 @@ function select(state) {
 
 const NewEmployee = (props) => {
   const { dispatch, $$dashboardStore } = props;
+  const actions = bindActionCreators(employeesActionCreators, dispatch);
+
   return (
-    <EmployeeForm />
+    <EmployeeForm actions={ actions }/>
   );
 }
 
