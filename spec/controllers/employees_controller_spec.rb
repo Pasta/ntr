@@ -17,6 +17,14 @@ describe EmployeesController, type: :controller do
       it { is_expected.to be_success }
       it { expect { subject }.to change(Employee, :count).by 1 }
     end
+
+    context "when params are not correct" do
+      let(:params) { { employee: { first_name:"monkey", position:"freedom leader" } } }
+
+      it { is_expected.not_to be_success }
+      it { expect { subject }.to change(Employee, :count).by 0 }
+      its(:status) { is_expected.to eq 400 }
+    end
   end
-  
+
 end
