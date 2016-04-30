@@ -9,7 +9,8 @@ export default class EmployeeForm extends React.Component {
     first_name: PropTypes.string,
     last_name: PropTypes.string,
     position: PropTypes.string,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
+    isSaving: PropTypes.bool
   };
 
   constructor(props, context) {
@@ -20,6 +21,8 @@ export default class EmployeeForm extends React.Component {
     // instance itself.
     _.bindAll(this, ['handleChange', 'handleSubmit']);
   }
+
+
 
 
   // React will automatically provide us with the event `e`
@@ -43,16 +46,16 @@ export default class EmployeeForm extends React.Component {
         <label>
           First Name:
         </label>
-        <input type="text" value={first_name} ref="first_name" onChange={this.handleChange}/>
+        <input type="text" value={first_name} ref="first_name" onChange={this.handleChange} disabled={this.props.isSaving}/>
         <label>
           Last Name:
         </label>
-        <input type="text" value={last_name} ref="last_name" onChange={this.handleChange}/>
+        <input type="text" value={last_name} ref="last_name" onChange={this.handleChange} disabled={this.props.isSaving}/>
         <label>
           Position:
         </label>
-        <input type="text" value={position} ref="position" onChange={this.handleChange}/>
-        <input type="submit"/>
+        <input type="text" value={position} ref="position" onChange={this.handleChange} disabled={this.props.isSaving}/>
+        <input type="submit" disabled={this.props.isSaving} />
       </form>
     );
   }
