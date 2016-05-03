@@ -29,8 +29,8 @@ export function submitEmployee(employee) {
     return (
       employeesRequestManager
         .submitEntity({ employee })
-        .then(res => dispatch(employeeSubmitSuccess(res.data)))
-        .catch(res => dispatch(employeeSubmitFailure(res.data)))
+        .then(res => dispatch(employeeSubmitSuccess(res.data["employee"])))
+        .catch(res => dispatch(employeeSubmitFailure(res.data["employee"])))
     );
   };
 }
